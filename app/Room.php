@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
-    //Отключаем timestamps
+    //Отключаем timestamps!
     public $timestamps = false;
 }
