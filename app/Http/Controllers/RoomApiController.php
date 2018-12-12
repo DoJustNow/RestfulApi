@@ -14,7 +14,7 @@ class RoomApiController extends Controller
      */
     public function index()
     {
-        //
+        //index
     }
 
     /**
