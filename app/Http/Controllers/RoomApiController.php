@@ -24,7 +24,7 @@ class RoomApiController extends Controller
      */
     public function create()
     {
-        //
+        //create
     }
 
     /**
