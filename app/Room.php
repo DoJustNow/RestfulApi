@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
-    //Отключаем timestamps
+
+    protected $fillable = ['floor', 'cnt_people'];
     public $timestamps = false;
 }

@@ -17,7 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('floors', 'RoomApiController');
+Route::get('/rooms','RoomApiController@index');
+Route::get('/room','RoomApiController@show');
+Route::post('/room','RoomApiController@store');
+Route::put('/room','RoomApiController@update');
+Route::delete('/room','RoomApiController@delete');
+
 /**
  * Мето         Путь                    Action      Имя маршрута
  * ----         --------------------    ------      -------------
