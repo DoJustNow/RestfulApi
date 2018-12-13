@@ -17,11 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/rooms','RoomApiController@index');
-Route::get('/room','RoomApiController@show');
-Route::post('/room','RoomApiController@store');
-Route::put('/room','RoomApiController@update');
-Route::delete('/room','RoomApiController@delete');
+Route::get('/rooms/','RoomApiController@index');
+Route::get('/room/show','RoomApiController@show');
+Route::post('/room/create','RoomApiController@store');
+Route::put('/room/update','RoomApiController@update');
+Route::delete('/room/delete','RoomApiController@delete');
 
 /**
  * Мето         Путь                    Action      Имя маршрута

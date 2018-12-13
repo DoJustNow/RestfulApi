@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 class RoomApiController extends Controller
 {
 
+    const LIMIT_ROOMS = 100;
+
     private $token = 'qwe';
 
     //Возврат "ВСЕХ" (максимум 100) записей в json
@@ -19,10 +21,10 @@ class RoomApiController extends Controller
         if ($accessToken !== $this->token) {
             return response()->json(['error' => 'Failed: no access_token']);
         }
-        if ($count > 100) {
-            $count = 100;
-        } elseif ($count <= 0) {
-            $count = 1;
+        if ( ! is_numeric($count) || ($count > self::LIMIT_ROOMS)
+             || ($count < 0)
+        ) {
+            return response()->json(['error' => 'Incorrect count']);
         }
         $rooms = Room::take($count)->orderBy('id', 'desc')->get();
 
@@ -49,7 +51,8 @@ class RoomApiController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
